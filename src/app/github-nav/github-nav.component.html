@@ -1,0 +1,72 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">GitHub Searcher</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a routerLink='/github-profile' routerLinkActive='active'>Home</a></li>
+          <li><a routerLink='/github-profile' routerLinkActive='active'>Search</a></li>
+        </ul>
+      </ul>
+    </div>
+  </nav>
+  <div>
+  
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input (keyup)='searchUser($event)' #keyword class="form-control mr-sm-2" type="text" placeholder="Search">
+          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="row">
+      <div class="col-md-5">
+        <div class="card mb-3">
+          <h3 class="card-header">User Avatar</h3>
+          <div class="card-body"></div>
+          <img src="{{githubservice.user.image}}" alt="user image">
+          <div class="card-body">
+            <p class="card-text"></p>
+          </div>
+          <button class="btn btn-primary">{{response.owner.followers}} followers</button>
+          <button class="btn btn-success">{{response.user.following}} following</button>
+          <button class="btn btn-danger">{{response.user.public_repos}} repos</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card border-success mb-3" style="max-width: 20rem;">
+          <div class="card-header">username: {{user.owner.login}}</div>
+          <div class="card-header">location: {{githubservice.user.location}}</div>
+          <div class="card-header">email: {{githubservice.user.email}}</div>
+          <div class="card-header">Member Since: {{githubservice.user.memberSinceDate|date}}</div>
+          <div class="card-header">Joined {{githubservice.user.memberSinceDate|date|dayCount}} days ago</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-md-8">
+      <a href="#" class="list-group-item list-group-item-active">
+        {{githubservice.username.name}} Repos
+      </a>
+      <ul style='list-style: none' *ngFor='let repo of githubservice.repos$ ; let i = index' class="list-group">
+        <li>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <a target="_blank" href="{{githubservice.repos$[i].html_url}}">
+            {{i+1}} . {{githubservice.repos$[i].name}}
+          </a>
+          <p><strong>Project Description</strong></p>
+          <p>{{githubservice.repos$[i].description}}</p>
+          
+          <button class="btn btn-primary">{{githubservice.repos$[i].watchers}} watchers</button>
+          <button class="btn btn-success">{{githubservice.repos$[i].forks}} forks</button>
+        </li>
+      </ul>
+    </div>
+  
+  </div>
+  
