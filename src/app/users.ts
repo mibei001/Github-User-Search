@@ -7,7 +7,7 @@ export class Users {
                 public email: string,
   // tslint:disable-next-line: variable-name
                 public avatar_url: any,
-                public repos) {
+                public repos: number | undefined) {
   }
   }
   

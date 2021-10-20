@@ -8,13 +8,14 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class GithubService {
-  user: Users;
+  user!: Users;
+  
 
 // tslint:disable-next-line: variable-name
   api_Url: string = environment.apiUrl;
-  repos$;
+  repos$:any;
   constructor(private http: HttpClient) { }
-  searchGithubUser(username) {
+  searchGithubUser(username: string) {
     // tslint:disable-next-line:class-name
     interface userInfo {
       login: string;
@@ -57,7 +58,7 @@ export class GithubService {
     );
     return promise;
   }
-  searchGithubRepos(username) {
+  searchGithubRepos(username: string) {
 
     // tslint:disable-next-line:class-name
     interface userInfo {
@@ -72,7 +73,7 @@ export class GithubService {
         .toPromise()
         .then(
           githubData => {
-            console.log(githubData[0]);
+            console.log(githubData);
             this.repos$ = githubData;
             console.log(this.repos$);
 

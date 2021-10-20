@@ -11,7 +11,7 @@ export class GithubNavComponent implements OnInit {
 
   constructor(public githubservice: GithubService) { }
 
-  searchUser($input) {
+  searchUser($input:any) {
     if ($input.target.value === '') {
 
     } else {

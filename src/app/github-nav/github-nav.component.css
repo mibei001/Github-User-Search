@@ -1,6 +1,5 @@
 /* GitHub Search Bar */
-body,
-html {
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -9,19 +8,15 @@ html {
 }
 
 .searchbar {
-  margin-bottom: auto;
-  margin-top: auto;
-  height: 60px;
-  background-color: #353b48;
-  border-radius: 30px;
-  padding: 10px;
+  background-color: cyan;
+  padding: 30px;
 }
 
 .search_input {
   color: white;
   border: 0;
   outline: 0;
-  background: none;
+  background: gray;
   width: 0;
   caret-color: transparent;
   line-height: 40px;
@@ -41,8 +36,8 @@ html {
 }
 
 .search_icon {
-  height: 40px;
-  width: 40px;
+  height: 20px;
+  width: 20px;
   float: right;
   display: flex;
   justify-content: center;

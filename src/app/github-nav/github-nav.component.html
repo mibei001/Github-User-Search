@@ -28,18 +28,15 @@
         <div class="card mb-3">
           <h3 class="card-header">User Avatar</h3>
           <div class="card-body"></div>
-          <img src="{{githubservice.user.image}}" alt="user image">
           <div class="card-body">
             <p class="card-text"></p>
           </div>
-          <button class="btn btn-primary">{{response.owner.followers}} followers</button>
-          <button class="btn btn-success">{{response.user.following}} following</button>
-          <button class="btn btn-danger">{{response.user.public_repos}} repos</button>
+          
         </div>
       </div>
       <div class="col-md-4">
         <div class="card border-success mb-3" style="max-width: 20rem;">
-          <div class="card-header">username: {{user.owner.login}}</div>
+          <!--<div class="card-header">username: {{user.owner.login}}</div>-->
           <div class="card-header">location: {{githubservice.user.location}}</div>
           <div class="card-header">email: {{githubservice.user.email}}</div>
           <div class="card-header">Member Since: {{githubservice.user.memberSinceDate|date}}</div>
@@ -49,9 +46,6 @@
     </div>
   
     <div class="col-md-8">
-      <a href="#" class="list-group-item list-group-item-active">
-        {{githubservice.username.name}} Repos
-      </a>
       <ul style='list-style: none' *ngFor='let repo of githubservice.repos$ ; let i = index' class="list-group">
         <li>
         </li>
@@ -69,4 +63,3 @@
     </div>
   
   </div>
-  
